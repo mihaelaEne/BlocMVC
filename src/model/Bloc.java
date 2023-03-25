@@ -13,6 +13,8 @@ public class Bloc {
         this.administrator=administrator;
         this.nrEtaje=nrEtaje;
         this.nrLocuitori=nrLocuitori;
+
+
     }
 
     public String getAdresa() {
@@ -54,6 +56,7 @@ public class Bloc {
         text+="Administratorul este : "+this.administrator+"\n";
         text+="Nr de etaje este de: "+ this.nrEtaje+"\n";
         text+="Nr de locatari activi este de: "+ this.nrLocuitori+"\n";
+        text+="Acestea sunt toate detaliile disponibile";
         return text;
     }
 
