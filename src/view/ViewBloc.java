@@ -112,11 +112,21 @@ public class ViewBloc {
                 switch (upd[i]) {
                     case "admin":
                         System.out.println("Introduceti noul admin:");
-                        String administrator=Integer.parseInt(scanner.nextLine());
+                        String administrator=scanner.nextLine();
                         break;
                     case "adresa":
                         System.out.println("Intr noua adresa");
-                        int adresa=
+                        String adresa= scanner.nextLine();
+                        break;
+
+                    case "nrEtaje":
+                        System.out.println("intr noul nr de etaje");
+                        int nrEtaje=Integer.parseInt(scanner.nextLine());
+                        break;
+                    case "nrLocuitori":
+                        System.out.println("Intr noul nr de etaje ");
+                        int nrLocuitori=Integer.parseInt(scanner.nextLine());
+                        break;
                     default:
                         System.out.println("Alegere gresita");
 

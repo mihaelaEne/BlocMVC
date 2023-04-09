@@ -43,6 +43,23 @@ class BlocControllerTest {
         BlocController blocController = new BlocController(blocuri);
         assertEquals("admin1", blocController.findBlocByID(01).getAdministrator());
     }
+
+
+    @Test
+    public void testWithoutId(){
+        ArrayList<Bloc> blocuri = new ArrayList();
+        Bloc b1 = new Bloc(01,"adresa1", "admin1",1,10);
+        blocuri.add(b1);
+        Bloc b2 = new Bloc(02,"adresa2", "admin2",2,20);
+        blocuri.add(b2);
+        Bloc b3 = new Bloc(03,"adresa3", "admin3",3,30);
+        blocuri.add(b3);
+        Bloc b4 = new Bloc(04,"adresa4", "admin4",4,40);
+        blocuri.add(b4);
+        BlocController blocController = new BlocController(blocuri);
+        assertNull(blocController.findBlocByID(100));
+
+    }
     @Test
     public void testUpdate() {
         ArrayList<Bloc> blocuri = new ArrayList();
@@ -56,12 +73,18 @@ class BlocControllerTest {
         blocuri.add(b4);
 
         BlocController blocController = new BlocController(blocuri);
-        Bloc bnou = new Bloc(01,"adresaNoua", "admin1", 100, 200);
+        Bloc bnou = new Bloc(01,"adresaNoua", "adminNou", 100, 200);
 
         blocController.update(bnou);
 
 
-        assertEquals("adresaNoua", blocController.findBlocByAdmin("admin1").getAdresa());
+        assertEquals("adminNou", blocController.findBlocByID(01).getAdministrator());
+        assertEquals("adresaNoua", blocController.findBlocByID(01).getAdresa());
+        assertEquals(100, blocController.findBlocByID(01).getNrEtaje());
+        assertEquals(200, blocController.findBlocByID(01).getNrLocuitori());
+
+
+
     }
 
 

@@ -74,7 +74,7 @@ public class BlocController {
     }
 
     public void update(Bloc bloc) {
-        Bloc deUpdatat = findBlocByAdmin(bloc.getAdministrator());
+        Bloc deUpdatat = findBlocByID(bloc.getId());
 
         if (bloc.getAdministrator() != null) {
             deUpdatat.setAdministrator(bloc.getAdministrator());
