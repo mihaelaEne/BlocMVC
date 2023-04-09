@@ -3,6 +3,7 @@ package view;
 import controllers.BlocController;
 import model.Bloc;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ViewBloc {
@@ -12,7 +13,7 @@ public class ViewBloc {
 
 
     public ViewBloc() {
-        blocController = new BlocController();
+        blocController=new BlocController();
         scanner = new Scanner(System.in);
         play();
     }
@@ -56,6 +57,8 @@ public class ViewBloc {
     }
 
     private void adaugareBloc() {
+        System.out.println("Introduceti id-ul:");
+        int id=Integer.parseInt(scanner.nextLine());
         System.out.println("Introduceti adresa blocului:");
         String adresa = scanner.nextLine();
         System.out.println("Introduceti numele administratorului:");
@@ -67,7 +70,7 @@ public class ViewBloc {
 
         Bloc bloc = blocController.findBlocByAdmin(admin);
         if (bloc == null) {
-            Bloc bNou = new Bloc(adresa,admin, nrEtaje, nrLocuitori );
+            Bloc bNou = new Bloc(id,adresa,admin,nrEtaje,nrLocuitori );
             blocController.addBloc(bNou);
         } else {
             System.out.println("Blocul exista deja");
@@ -89,7 +92,7 @@ public class ViewBloc {
     }
 
     private void updateBloc() {
-        System.out.println("Introduceti numele-ul adminului");
+        System.out.println("Introduceti numele adminului");
         String admin = scanner.nextLine();
 
         Bloc bloc = blocController.findBlocByAdmin(admin);
@@ -97,7 +100,7 @@ public class ViewBloc {
         if (bloc == null) {
             System.out.println("Nu exista un bloc cu acest admin");
         } else {
-            System.out.println("Introdu cu virgula ce doresti sa modifici:admin,nrLocuitori");
+            System.out.println("Introdu cu virgula ce doresti sa modifici:admin,adresa,nrEtaje,nrLocuitori");
 
             String[] upd = scanner.nextLine().split(",");
 
@@ -109,12 +112,11 @@ public class ViewBloc {
                 switch (upd[i]) {
                     case "admin":
                         System.out.println("Introduceti noul admin:");
-                        int administrator=Integer.parseInt(scanner.nextLine());
+                        String administrator=Integer.parseInt(scanner.nextLine());
                         break;
-                    case "nrLocuitori":
-                        System.out.println("Introduceti noul nr de locuitori");
-                       int nrLocuitori=Integer.parseInt(scanner.nextLine());
-                        break;
+                    case "adresa":
+                        System.out.println("Intr noua adresa");
+                        int adresa=
                     default:
                         System.out.println("Alegere gresita");
 

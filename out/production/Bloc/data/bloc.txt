@@ -1,0 +1,5 @@
+01,Mariuca,Ion,1,100
+02,Panseluta,Maria,2,200
+03,Vacaresti,Mihai,3,300
+04,Decebal,Denisa,4,400
+05,Ion Mihalache,Marius,5,500
